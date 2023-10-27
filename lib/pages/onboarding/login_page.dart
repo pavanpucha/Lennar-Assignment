@@ -85,11 +85,11 @@ class _PasswordInput extends StatelessWidget {
           onChanged: (password) =>
               Provider.of<LoginProvider>(context, listen: false)
                   .passwordChanged(password),
-          obscureText: loginprovider.showPassword ? true : false,
+          obscureText: !loginprovider.showPassword ? true : false,
           textInputAction: TextInputAction.done ,
           decoration: InputDecoration(
             suffixIcon: IconButton(
-              icon: Icon(!loginprovider.showPassword ? Icons.visibility : Icons.visibility_off),
+              icon: Icon(loginprovider.showPassword ? Icons.visibility : Icons.visibility_off),
               onPressed: () {
                 loginprovider
                     .passwordToggle(
